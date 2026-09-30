@@ -2,6 +2,8 @@
 
 App de escritorio para Windows que pone una actividad personalizada en tu perfil de Discord: jugando, transmitiendo, escuchando, viendo o compitiendo, con imágenes, botones y temporizador. Queda corriendo en la bandeja del sistema y puede partir junto con Windows.
 
+![Estado de Discord](docs/captura.png)
+
 ## Qué hace
 
 - **Perfiles.** Cada perfil guarda un tipo de actividad, nombre, detalles, texto, URL de stream, imagen grande, imagen chica, hasta dos botones con link y un modo de tiempo (transcurrido o cuenta regresiva).
@@ -39,7 +41,7 @@ La conexión se reintenta con espera exponencial (de 2 a 60 segundos) y se detie
 ## Instalar y ejecutar
 
 ```bash
-git clone https://github.com/infernuruguay-ai/estado-discord.git
+git clone https://github.com/UiUyHerrera/estado-discord.git
 cd estado-discord
 pip install -r requirements.txt
 python app.py
