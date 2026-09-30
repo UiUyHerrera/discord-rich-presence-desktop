@@ -4,6 +4,13 @@ App de escritorio para Windows que pone una actividad personalizada en tu perfil
 
 ![Estado de Discord](docs/captura.png)
 
+Así se ve en Discord:
+
+<p>
+  <img src="docs/actividad.png" alt="Actividad en Discord" width="456">
+  <img src="docs/perfil.png" alt="Perfil en Discord" width="315">
+</p>
+
 ## Qué hace
 
 - **Perfiles.** Cada perfil guarda un tipo de actividad, nombre, detalles, texto, URL de stream, imagen grande, imagen chica, hasta dos botones con link y un modo de tiempo (transcurrido o cuenta regresiva).
