@@ -1,36 +1,38 @@
-# Estado de Discord
+# Discord Status
 
-App de escritorio para Windows que pone una actividad personalizada en tu perfil de Discord ("Jugando a…", "Escuchando…", "Viendo…") con textos e imágenes propios, y la va rotando sola.
+A Windows desktop app that puts a custom activity on your Discord profile ("Playing…", "Listening to…", "Watching…") with your own text and images, and rotates it on its own.
 
-![La actividad tal como se ve en Discord](docs/actividad.png)
+![The activity as it shows in Discord](docs/actividad.png)
 
-> **Ojo:** la app se conecta con el token de tu cuenta de usuario. Automatizar cuentas de usuario va contra los términos de Discord y puede terminar en una suspensión. Usala bajo tu responsabilidad.
+> **Heads up:** the app connects with your user account token. Automating user accounts is against Discord's terms and can get the account suspended. Use it at your own risk.
 
-## Qué hace
+## What it does
 
-- Perfiles de actividad con tipo (jugando, transmitiendo, escuchando, viendo o compitiendo), textos, imágenes grande y chica, y botones con links.
-- Rotación: cambia de texto cada tantos segundos y de perfil cada tantos minutos, con mínimos para no saturar a Discord.
-- Imágenes desde una URL o desde un archivo de la compu. Si Discord no acepta la URL directa, la app la vuelve a subir.
-- Queda en la bandeja del sistema, puede arrancar con Windows y no deja abrir dos copias a la vez.
+- Activity profiles with a type (playing, streaming, listening, watching or competing), text, large and small images, and buttons with links.
+- Rotation: changes the text every few seconds and the profile every few minutes, with minimums so Discord isn't flooded.
+- Images from a URL or from a file on your computer. If Discord won't take the URL directly, the app uploads it again.
+- Lives in the system tray, can start with Windows and won't open twice.
 
-![Ventana principal](docs/captura.png)
+![Main window](docs/captura.png)
 
-## Cómo está hecha
+The interface is in Spanish.
 
-Python con una interfaz web dentro de una ventana nativa (pywebview) y un ícono en la bandeja (pystray). La conexión con Discord es un cliente propio del gateway sobre websockets, que manda la presencia y se reconecta solo si se corta.
+## How it's built
+
+Python with a web interface inside a native window (pywebview) and a tray icon (pystray). The connection to Discord is a small gateway client of its own over websockets, which sends the presence and reconnects by itself when the connection drops.
 
 ```
-app.py        ventana, bandeja y la API que usa la interfaz
-nucleo/       gateway, perfiles, rotación, imágenes y opciones de Windows
-ui/           HTML, CSS y JavaScript de la interfaz
-tests/        tests de la rotación y del armado de actividades
+app.py        window, tray and the API the interface calls
+nucleo/       gateway, profiles, rotation, images and Windows options
+ui/           the interface's HTML, CSS and JavaScript
+tests/        tests for the rotation and for building activities
 ```
 
-## Instalarla
+## Installing
 
-Lo más fácil es el [instalador](https://github.com/UiUyHerrera/discord-rich-presence-installer): se encarga de Python, de las dependencias y de los accesos directos.
+The easiest way is the [installer](https://github.com/UiUyHerrera/discord-rich-presence-installer): it takes care of Python, the dependencies and the shortcuts.
 
-A mano:
+By hand:
 
 ```bash
 python -m venv .venv
@@ -39,7 +41,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Al abrirla pide el token. Queda guardado en texto plano en `%APPDATA%\EstadoDiscord`, junto con los perfiles; si preferís no guardarlo, podés pasarlo en la variable de entorno `DISCORD_TOKEN`.
+It asks for the token when it opens. The token is stored in plain text in `%APPDATA%\EstadoDiscord`, next to the profiles; if you'd rather not store it, pass it in the `DISCORD_TOKEN` environment variable.
 
 ## Tests
 
